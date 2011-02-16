@@ -1,6 +1,4 @@
 /**
- * The MIT License.
- *
  * Copyright (c) 2011 David Volquartz Lebech
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
