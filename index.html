@@ -3,9 +3,8 @@
 	<head>
 		<title>Space Wars canvas</title>
 		<meta charset="utf-8" />
-		<script type="text/javascript" src="sw.js"></script>
 	</head>
-	<body onload="init();">
+	<body>
 		<div>
 			<p>The spaceship is in zero-gravity environment. It will never stop moving, unless you slow it down.</p>
 			<p>Up arrow: Thrust<br />
@@ -13,8 +12,10 @@
 			Space: Fire laser
 			</p>
 			<p>Enjoy Space. Shoot the asteroids.</p>
-			<p><a href="#" onclick="init();">New game</a><br /><a href="#" onclick="resetCounters();">Reset stats</a></p>
+			<p><a href="#" onclick="SpaceWars.init('sw-canvas');return false;">New game</a><br /><a href="#" onclick="SpaceWars.resetCounters();return false;">Reset stats</a></p>
 		</div>
 		<canvas id="sw-canvas" width="400" height="400">Unfortunately, your browser does not support the canvas element. Get the newest Firefox, Chrome, Opera or Safari.</canvas>
+		<script src="js/sw.js"></script>
+        <script>SpaceWars.init('sw-canvas');</script>
 	</body>
 </html>
