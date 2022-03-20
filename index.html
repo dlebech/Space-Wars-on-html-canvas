@@ -1,21 +1,61 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Space Wars canvas</title>
-		<meta charset="utf-8" />
-	</head>
-	<body>
-		<div>
-			<p>The spaceship is in zero-gravity environment. It will never stop moving, unless you slow it down.</p>
-			<p>Up arrow: Thrust<br />
-			Left/right arrows: Rotate left/right<br />
-			Space: Fire laser
-			</p>
-			<p>Enjoy Space. Shoot the asteroids.</p>
-			<p><a href="#" onclick="SpaceWars.init('sw-canvas');return false;">New game</a><br /><a href="#" onclick="SpaceWars.resetCounters();return false;">Reset stats</a></p>
-		</div>
-		<canvas id="sw-canvas" width="400" height="400">Unfortunately, your browser does not support the canvas element. Get the newest Firefox, Chrome, Opera or Safari.</canvas>
-		<script src="js/sw.js"></script>
-        <script>SpaceWars.init('sw-canvas');</script>
-	</body>
+
+<head>
+  <title>Space Wars canvas</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      width: 120px;
+      padding: 8px;
+    }
+
+    #intro {
+      display: flex;
+      flex-direction: column;
+      row-gap: 12px;
+      margin: 0 0 12px;
+    }
+
+    #speed {
+      margin: 4px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="intro">
+    <p>The spaceship is in zero-gravity environment. It will never stop moving, unless you slow it down.</p>
+    <p>Up arrow: Thrust<br />
+      Left/right arrows: Rotate left/right<br />
+      Space: Fire laser
+    </p>
+    <p>Enjoy Space. Shoot the asteroids.</p>
+    <div>
+      <input type="radio" id="speed-1" name="speed" value="1" onclick="sw.setDifficulty(1);this.blur();" checked>
+      <label for="speed-1">Speed 1</label>
+      <input type="radio" id="speed-2" name="speed" value="2" onclick="sw.setDifficulty(2);this.blur();">
+      <label for="speed-2">Speed 2</label>
+    </div>
+    <button onclick="sw.init('sw-canvas');this.blur();">New game</button>
+    <button onclick="sw.resetCounters();this.blur();">Reset stats</button>
+  </div>
+  <canvas id="sw-canvas" width="400" height="400">Unfortunately, your browser does not support the canvas element. Get
+    the newest Firefox, Chrome, Opera or Safari.</canvas>
+  <script type="module">
+    import SpaceWarsGame from './js/Game.mjs';
+
+    const sw = new SpaceWarsGame();
+    sw.init('sw-canvas');
+
+    window.sw = sw;
+  </script>
+</body>
+
 </html>
