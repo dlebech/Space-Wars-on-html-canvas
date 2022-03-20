@@ -7,5 +7,3 @@ canvas element. The game was initially created for the Android platform.
 
 Also, I admit there is not much "wars" to it but that was the name it was given
 :-)
-
-The license for the code is included in the js file. MIT.
